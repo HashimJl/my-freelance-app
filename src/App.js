@@ -24,20 +24,20 @@ function App() {
     pass: "invalid password"
   };
 
+  const [userdetails,setUserdetails] = useState({uname: "", pass: ""});
+
   const handleSubmit = (event) => {
     //prevent page reload
     event.preventDefault();
 
-    var { uname, pass } = document.forms[0];
-
     // find user login info
     const userData = data.find((user) =>
-      user.username === uname.value
+      user.username === userdetails.uname
     );
 
     // compare user info
     if (userData) {
-      if (userData.password !== pass.value) {
+      if (userData.password !== userdetails.pass) {
         // invalid password
         setErrorMessages({ name: "pass", message: errors.pass});
       } 
@@ -66,18 +66,23 @@ function App() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required />
+          <input type="text" name="uname" required 
+          onChange={e => setUserdetails({...userdetails, uname: e.target.value})}
+          value={userdetails.uname}/>
+
           {renderErrorMessage("uname")}
         </div>
 
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required />
+          <input type="password" name="pass" required 
+          onChange={e => setUserdetails({...userdetails, pass: e.target.value})}
+          value={userdetails.pass}/>
           {renderErrorMessage("pass")}
         </div>
 
         <div className="button-container">
-          <input type="submit" value="submit"/>
+          <input type="submit" value="sign in"/>
         </div>
       </form>
 
