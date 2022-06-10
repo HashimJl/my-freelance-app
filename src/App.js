@@ -1,107 +1,78 @@
-import logo from './logo.svg';
-import React, { useState } from 'react';
-import { ReactDOM } from 'react';
-import './App.css';
+import logo from './logo.svg'
+import React, { useState } from 'react'
+import { ReactDOM } from 'react'
+import './App.css'
+import Login from './Login'
 
 function App() {
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // user login info (react list)
-  const data = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
-
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
-
-  const [userdetails,setUserdetails] = useState({uname: "", pass: ""});
-
-  const handleSubmit = (event) => {
-    //prevent page reload
-    event.preventDefault();
-
-    // find user login info
-    const userData = data.find((user) =>
-      user.username === userdetails.uname
-    );
-
-    // compare user info
-    if (userData) {
-      if (userData.password !== userdetails.pass) {
-        // invalid password
-        setErrorMessages({ name: "pass", message: errors.pass});
-      } 
-      else {
-        setIsSubmitted(true);
-      }
-    }
-    else {
-      // username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
-  };
-
-
-  // JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-
-
-  // JSX code for login form
-  const renderForm = (
-    <div className="form">
-
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Username </label>
-          <input type="text" name="uname" required 
-          onChange={e => setUserdetails({...userdetails, uname: e.target.value})}
-          value={userdetails.uname}/>
-
-          {renderErrorMessage("uname")}
-        </div>
-
-        <div className="input-container">
-          <label>Password </label>
-          <input type="password" name="pass" required 
-          onChange={e => setUserdetails({...userdetails, pass: e.target.value})}
-          value={userdetails.pass}/>
-          {renderErrorMessage("pass")}
-        </div>
-
-        <div className="button-container">
-          <input type="submit" value="sign in"/>
-        </div>
-      </form>
-
-    </div>
-  );
-
   return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">
-          Sign In
+    <div class='demo-layout-waterfall mdl-layout mdl-js-layout'>
+      <header class='mdl-layout__header mdl-layout__header--waterfall'>
+        {/*<!-- Top row, always visible -->*/}
+        <div class='mdl-layout__header-row'>
+          {/*<!-- Title -->*/}
+          <span class='mdl-layout-title'>The Freelancers</span>
+          <div class='mdl-layout-spacer'></div>
+          <div
+            class='mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right'
+          >
+            <label
+              class='mdl-button mdl-js-button mdl-button--icon'
+              for='waterfall-exp'
+            >
+              <i class='material-icons'>search</i>
+            </label>
+
+            <div class='mdl-textfield__expandable-holder'>
+              <input
+                type='text'
+                class='mdl-textfield__input'
+                name='sample'
+                id='waterfall-exp'
+              />
+            </div>
+          </div>
         </div>
-        {isSubmitted ? <div>User is succesfully logged in</div> : renderForm}
+        {/*<!-- Bottom row, not visible on scroll -->*/}
+        <div class='mdl-layout__header-row'>
+          <div class='mdl-layout-spacer'></div>
+          {/*<!-- Navigation -->*/}
+          <nav class='mdl-navigation'>
+            <a class='mdl-navigation__link' href={<Login />}>
+              Sign In
+            </a>
+            <a class='mdl-navigation__link'>
+              Sign Up
+            </a>
+          </nav>
+        </div>
+      </header>
+      <div class='mdl-layout__drawer'>
+        <span class='mdl-layout-title'>Title</span>
+        <nav class='mdl-navigation'>
+          <a class='mdl-navigation__link' href=''>
+            Link
+          </a>
+          <a class='mdl-navigation__link' href=''>
+            Link
+          </a>
+          <a class='mdl-navigation__link' href=''>
+            Link
+          </a>
+          <a class='mdl-navigation__link' href=''>
+            Link
+          </a>
+        </nav>
       </div>
+      <main class='mdl-layout__content'>
+        <div class='page-content'>{/*<!-- Your content goes here -->*/}</div>
+      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 
 /*
 return (
