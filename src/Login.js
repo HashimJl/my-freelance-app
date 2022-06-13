@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ReactDOM } from 'react'
 import App from './App'
+import Home from './Home'
 import './Login.css'
 
 function Login() {
@@ -95,7 +96,7 @@ function Login() {
 
   return (
     <div className='app'>
-      <div className='login-form'>{isSubmitted ? <App /> : renderForm}</div>
+      <div className='login-form'>{isSubmitted ? <Home /> : renderForm}</div>
     </div>
   )
 }
