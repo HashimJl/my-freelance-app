@@ -1,3 +1,15 @@
-.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+.demo-layout-waterfall
+  .mdl-layout__header-row
+  .mdl-navigation__link:last-of-type {
   padding-right: 0;
+}
+
+.searchField {
+  margin: 15px;
+}
+
+.mainArea {
+  margin: 10%;
+  padding: 10%;
+  font-size: large;
 }

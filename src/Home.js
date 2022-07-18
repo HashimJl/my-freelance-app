@@ -11,14 +11,20 @@ function Home() {
       <header class='mdl-layout__header'>
         <div class='mdl-layout__header-row'>
           <span class='mdl-layout-title'>Freelance</span>
-
           <div class='mdl-layout-spacer'></div>
 
           <nav class='mdl-navigation'>
-            <Link to='/Login'>Sign in</Link>
-            <a class='mdl-navigation__link' href=''>
-              Sign up
-            </a>
+            <div class='searchField'>
+              <input type='text' placeholder='search service'></input>
+            </div>
+            <div>
+              <Link to='/Login'>Sign in</Link>
+            </div>
+            <div>
+              <a class='mdl-navigation__link' href=''>
+                Sign up
+              </a>
+            </div>
           </nav>
         </div>
       </header>
@@ -40,7 +46,7 @@ function Home() {
         </nav>
       </div>
       <main class='mdl-layout__content'>
-        <div class='page-content'></div>
+        <div class='mainArea'>service categories here</div>
       </main>
     </div>
   )
