@@ -46,7 +46,22 @@ function Home() {
         </nav>
       </div>
       <main class='mdl-layout__content'>
-        <div class='mainArea'>service categories here</div>
+        <br></br>
+        <br></br>
+        <div class='mainArea'>
+          <h3>Explore the marketplace</h3>
+          <div class='mainGrid'>
+            <a>Graphics and Design</a>
+            <a>Digital Marketing</a>
+            <a>Writing and Translation</a>
+            <a>Video and Animation</a>
+            <a>Music and Audio</a>
+            <a>Programming and Tech</a>
+            <a>Business</a>
+            <a>Lifestyle</a>
+            <a>Data</a>
+          </div>
+        </div>
       </main>
     </div>
   )

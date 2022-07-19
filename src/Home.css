@@ -9,7 +9,10 @@
 }
 
 .mainArea {
-  margin: 10%;
-  padding: 10%;
-  font-size: large;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 5%;
 }
