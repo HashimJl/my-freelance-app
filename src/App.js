@@ -12,6 +12,7 @@ function App() {
       <nav>
         <Link to='/Home'>Homepage</Link> <br></br>
         <Link to='/Login'>Loginpage</Link>
+        <Link to='/Signup'>Sign up page</Link>
       </nav>
     </div>
   )

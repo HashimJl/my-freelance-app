@@ -17,13 +17,11 @@ function Home() {
             <div class='searchField'>
               <input type='text' placeholder='search service'></input>
             </div>
-            <div>
+            <div class='loginButton'>
               <Link to='/Login'>Sign in</Link>
             </div>
-            <div>
-              <a class='mdl-navigation__link' href=''>
-                Sign up
-              </a>
+            <div class='signupButton'>
+              <Link to='/Signup'>Sign up</Link>
             </div>
           </nav>
         </div>
