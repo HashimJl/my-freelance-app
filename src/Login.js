@@ -3,6 +3,8 @@ import { ReactDOM } from 'react'
 import App from './App'
 import Home from './Home'
 import './Login.css'
+import SignedIn from './SignedIn'
+import { Link, Navigate } from 'react-router-dom'
 
 function Login() {
   const [errorMessages, setErrorMessages] = useState({})
@@ -96,7 +98,9 @@ function Login() {
 
   return (
     <div className='app'>
-      <div className='login-form'>{isSubmitted ? <Home /> : renderForm}</div>
+      <div className='login-form'>
+        {isSubmitted ? <Navigate to='/Signedin' /> : renderForm}
+      </div>
     </div>
   )
 }
