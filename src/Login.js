@@ -99,7 +99,7 @@ function Login() {
   return (
     <div className='app'>
       <div className='login-form'>
-        {isSubmitted ? <Navigate to='/Signedin' /> : renderForm}
+        {isSubmitted ? <Navigate to='/Signedin'/> : renderForm}
       </div>
     </div>
   )

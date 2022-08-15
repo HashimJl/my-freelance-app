@@ -11,8 +11,15 @@
 .loginButton {
   margin: 15px;
 }
+.loginButton > a {
+  color: white;
+}
+
 .signupButton {
   margin: 15px;
+}
+.signupButton > a {
+  color: white;
 }
 
 .mainArea {
@@ -22,4 +29,9 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   gap: 5%;
+  font-size: 120%;
+}
+
+.mainGrid > a {
+  color: black
 }
