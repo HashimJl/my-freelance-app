@@ -54,7 +54,7 @@ function Home() {
         <br></br>
         <br></br>
         <div class='mainArea'>
-          <h3>Explore the marketplace</h3>
+          <h3>Explore the marketplace HI</h3>
           <div class='mainGrid'>
             <a><MdOutlineDesignServices /> Graphics and Design</a>
             <a><FiShoppingCart /> Digital Marketing</a>
