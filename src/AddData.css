@@ -1,0 +1,37 @@
+.demo-layout-waterfall
+  .mdl-layout__header-row
+  .mdl-navigation__link:last-of-type {
+  padding-right: 0;
+}
+
+.searchField {
+  margin: 15px;
+}
+
+.loginButton {
+  margin: 15px;
+}
+.loginButton > a {
+  color: white;
+}
+
+.signupButton {
+  margin: 15px;
+}
+.signupButton > a {
+  color: white;
+}
+
+.mainArea {
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 5%;
+  font-size: 120%;
+}
+
+.mainGrid > a {
+  color: black
+}

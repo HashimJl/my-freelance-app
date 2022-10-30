@@ -2,7 +2,7 @@
 //import { ReactDOM } from 'react'
 import './Home.css'
 //import Login from './Login'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {IconContext} from 'react-icons'
 import {MdOutlineDesignServices, MdOutlineOndemandVideo} from 'react-icons/md'
 import {FiShoppingCart} from 'react-icons/fi'
@@ -13,31 +13,29 @@ import {GoSearch} from 'react-icons/go'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function Home() {
-  const [data,setData] = useState([])
+function Add() {
 
-  useEffect(() => {
-    const fetchAllData = async() => {
-      try{
-        const res = await axios.get("http://localhost:8800/books")
-        setData(res.data);
-      }catch(err) {
+    const navigate = useNavigate()
+  const [data,setData] = useState({
+    title: "",
+    description: "",
+    cover: "",
+  })
+
+  const handleChange = (e) => {
+    setData((prev) => ({...prev, [e.target.name]: e.target.value}))
+  }
+
+  const handleClick = async e => {
+    e.preventDefault()
+    try{
+        await axios.post("http://localhost:8800/books",data)
+        navigate("/")
+    }catch(err) {
         console.log(err)
-      }
     }
-    fetchAllData()
-  },[])
-
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8800/books/${id}`);
-      window.location.reload()
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-
+  }
+  
 
   return (
     <IconContext.Provider value={{color: "#3f51b5", size: "2em"}}>
@@ -93,17 +91,12 @@ function Home() {
             <a><GiLifeInTheBalance /> Lifestyle</a>
             <a><FaDatabase /> Data</a>
           </div>
-          <div className="books">
-            {
-              data.map(data=>(
-                <div key={data.id} className="book">
-                <p>{data.title}</p>
-                <p>{data.description}</p>
-                <p>{data.cover}</p>
-                <button className="delete" onClick={() => handleDelete(data.id)}>Delete</button>
-                </div>
-              ))
-            }
+          <div className='form'>
+            <h1>add new data</h1>
+                <input type="text" placeholder="title" onChange={handleChange} name='title' />
+                <input type="text" placeholder="description" onChange={handleChange} name='description'/>
+                <input type="text" placeholder="cover" onChange={handleChange} name='cover'/>
+                <button onClick={handleClick}>Add</button>
           </div>
         </div>
       </main>
@@ -113,4 +106,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Add
