@@ -81,7 +81,7 @@ function Home() {
         <br></br>
         <br></br>
         <div class='mainArea'>
-          <h3>Explore the marketplace Hey</h3>
+          <h3>Explore the marketplace</h3>
           <div class='mainGrid'>
             <a><MdOutlineDesignServices /> Graphics and Design</a>
             <a><FiShoppingCart /> Digital Marketing</a>
@@ -101,6 +101,7 @@ function Home() {
                 <p>{data.description}</p>
                 <p>{data.cover}</p>
                 <button className="delete" onClick={() => handleDelete(data.id)}>Delete</button>
+                <button className="update"> Update </button>
                 </div>
               ))
             }
