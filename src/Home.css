@@ -1,6 +1,4 @@
-.demo-layout-waterfall
-  .mdl-layout__header-row
-  .mdl-navigation__link:last-of-type {
+.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type {
   padding-right: 0;
 }
 
@@ -11,19 +9,20 @@
 .loginButton {
   margin: 15px;
 }
-.loginButton > a {
+
+.loginButton>a {
   color: white;
 }
 
 .signupButton {
   margin: 15px;
 }
-.signupButton > a {
+
+.signupButton>a {
   color: white;
 }
 
-.mainArea {
-}
+.mainArea {}
 
 .mainGrid {
   display: grid;
@@ -32,37 +31,12 @@
   font-size: 120%;
 }
 
-.mainGrid > a {
+.mainGrid>a {
   color: black
 }
 
-.books {
-  display: flex;
-}
-  .book {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-    img {
-      width: 200px;
-      height: 300px;
-      object-fit: cover;
-    }
 
-    button {
-      padding: 3px 6px;
-      background-color: white;
-      cursor: pointer;
-    }
-    .delete {
-      border: 1px solid rgb(245, 191, 191);
-      color: rgb(242, 100, 100);
-    }
-    .update {
-      border: 1px solid rgb(204, 204, 243);
-      color: rgb(139, 139, 234);
-    }
-  
+
+a:link {
+  text-decoration: none;
+}
