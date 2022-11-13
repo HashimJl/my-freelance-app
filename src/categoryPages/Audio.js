@@ -7,7 +7,6 @@ import { GoSearch } from 'react-icons/go'
 
 function Audio() {
     const [data, setData] = useState([])
-
     useEffect(() => {
         const fetchAudio = async () => {
             try {

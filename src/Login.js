@@ -5,40 +5,40 @@ import Home from './Home'
 import './Login.css'
 import SignedIn from './SignedIn'
 import { Link, Navigate } from 'react-router-dom'
+import axios from 'axios'
 
 function Login() {
   const [errorMessages, setErrorMessages] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   // user login info (react list)
-  const data = [
-    {
-      username: 'user1',
-      password: 'pass1',
-    },
-    {
-      username: 'user2',
-      password: 'pass2',
-    },
-  ]
+  const [data, setData] = useState([])
 
   const errors = {
-    uname: 'invalid username',
+    email: 'invalid email',
     pass: 'invalid password',
   }
 
-  const [userdetails, setUserdetails] = useState({ uname: '', pass: '' })
+  const [userdetails, setUserdetails] = useState({ email: '', password: '' })
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async e => {
     //prevent page reload
-    event.preventDefault()
+    e.preventDefault()
+    try {
+      const res = await axios.get("http://localhost:8800/userdetails")
+      setData(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+
+
 
     // find user login info
-    const userData = data.find((user) => user.username === userdetails.uname)
+    const userData = data.find((user) => user.email === userdetails.email)
 
     // compare user info
     if (userData) {
-      if (userData.password !== userdetails.pass) {
+      if (userData.password !== userdetails.password) {
         // invalid password
         setErrorMessages({ name: 'pass', message: errors.pass })
       } else {
@@ -46,8 +46,9 @@ function Login() {
       }
     } else {
       // username not found
-      setErrorMessages({ name: 'uname', message: errors.uname })
+      setErrorMessages({ name: 'email', message: errors.email })
     }
+
   }
 
   // JSX code for error message
@@ -61,15 +62,15 @@ function Login() {
     <div className='form'>
       <form onSubmit={handleSubmit}>
         <div className='input-container'>
-          <label>Username </label>
+          <label>Email </label>
           <input
             type='text'
             name='uname'
             required
             onChange={(e) =>
-              setUserdetails({ ...userdetails, uname: e.target.value })
+              setUserdetails({ ...userdetails, email: e.target.value })
             }
-            value={userdetails.uname}
+            value={userdetails.email}
           />
 
           {renderErrorMessage('uname')}
@@ -82,9 +83,9 @@ function Login() {
             name='pass'
             required
             onChange={(e) =>
-              setUserdetails({ ...userdetails, pass: e.target.value })
+              setUserdetails({ ...userdetails, password: e.target.value })
             }
-            value={userdetails.pass}
+            value={userdetails.password}
           />
           {renderErrorMessage('pass')}
         </div>

@@ -7,7 +7,9 @@ import { GoSearch } from 'react-icons/go'
 
 function Graphics() {
   const [data, setData] = useState([])
+
   useEffect(() => {
+
     const fetchGraphics = async () => {
       try {
         const res = await axios.get("http://localhost:8800/entryGraphics")
