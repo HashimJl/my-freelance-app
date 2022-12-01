@@ -1,6 +1,6 @@
 import './SignedIn.css'
 import { Link } from 'react-router-dom'
-import Login from './Login'
+import { Login } from './Login'
 import { IconContext } from 'react-icons'
 import { MdOutlineDesignServices, MdOutlineOndemandVideo } from 'react-icons/md'
 import { FiShoppingCart } from 'react-icons/fi'
@@ -14,6 +14,7 @@ import axios from 'axios'
 function SignedIn() {
 
   const [data, setData] = useState([])
+  const userEmail = window.localStorage.getItem("email")
 
   useEffect(() => {
 
@@ -25,9 +26,8 @@ function SignedIn() {
         console.log(err)
       }
     }
-    fetchuserdetails()
+    //fetchuserdetails()
   }, [])
-
 
   return (
     <IconContext.Provider value={{ color: "#3f51b5", size: "2em" }}>
@@ -38,11 +38,11 @@ function SignedIn() {
             <div class='mdl-layout-spacer'></div>
 
             <nav class='mdl-navigation'>
-              <div class='searchField'>
+              <div className='searchField'>
                 <GoSearch color='white' /> <input type='text' placeholder='search service'></input>
               </div>
-              <div class='loginButton'>
-                <label>logged in as: {data.firstName} , {data.lastName} </label>
+              <div className='loginButton'>
+                <label>logged in as: </label>
               </div>
               <div class='signupButton'>
                 <Link to='/'>Log out</Link>
