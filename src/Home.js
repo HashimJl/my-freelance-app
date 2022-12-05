@@ -2,7 +2,7 @@
 //import { ReactDOM } from 'react'
 import './Home.css'
 //import Login from './Login'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IconContext } from 'react-icons'
 import { MdOutlineDesignServices, MdOutlineOndemandVideo } from 'react-icons/md'
 import { FiShoppingCart } from 'react-icons/fi'
@@ -14,7 +14,12 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function Home() {
+
+  const userData = localStorage.getItem("user")
+  const navigate = useNavigate()
+
   const [data, setData] = useState([])
+
   const linkStyle = {
     color: 'blue',
   }
@@ -26,7 +31,10 @@ function Home() {
       console.log(err);
     }
   };
-
+  const handleLogout = () => {
+    //userData = null;
+    //sessionStorage.clear();
+  };
 
 
 
@@ -43,10 +51,10 @@ function Home() {
                 <GoSearch color='white' /> <input type='text' placeholder='search service'></input>
               </div>
               <div class='loginButton'>
-                <Link to='/Login'>Sign in</Link>
+                <label>logged in as: {userData}</label>
               </div>
-              <div class='signupButton'>
-                <Link to='/Signup'>Sign up</Link>
+              <div class='signupButton' onClick={handleLogout}>
+                <Link to='/'>Log out</Link>
               </div>
             </nav>
           </div>

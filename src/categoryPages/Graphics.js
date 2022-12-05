@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons'
 import { GoSearch } from 'react-icons/go'
 
 function Graphics() {
+  const userData = localStorage.getItem("user")
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -34,10 +35,10 @@ function Graphics() {
                 <GoSearch color='white' /> <input type='text' placeholder='search service'></input>
               </div>
               <div class='loginButton'>
-                <Link to='/Login'>Sign in</Link>
+                <label>logged in as: {userData}</label>
               </div>
               <div class='signupButton'>
-                <Link to='/Signup'>Sign up</Link>
+                <Link to='/'>Log out</Link>
               </div>
             </nav>
           </div>
@@ -63,7 +64,9 @@ function Graphics() {
           <br></br>
           <br></br>
           <div class='mainArea'>
+
             <h3>Graphics and Design</h3>
+
             <div className="entrys">
               {
                 data.map(data => (
@@ -80,6 +83,7 @@ function Graphics() {
                 ))
               }
             </div>
+
           </div>
         </main>
       </div>

@@ -43,15 +43,21 @@ function Login() {
         setErrorMessages({ name: 'pass', message: errors.pass })
       }
       else {
-        navigate("/Signedin")
+        localStorage.setItem('user', userData.email)
+        navigate("/Home")
       }
     }
+    // TO-FIX: does not show error when email is wrong
     else {
       // email not found
       setErrorMessages({ name: 'email', message: errors.email })
     }
 
     //VERY IMPORTANT -> GIVE 'userData' TO 'SignedIn' PAGE
+  }
+
+  const handleCreateAcc = async e => {
+    navigate("/Signup")
   }
 
   // JSX code for error message
@@ -98,10 +104,18 @@ function Login() {
             <input type='submit' value='sign in'
               onClick={handleSubmit} />
           </div>
+          <div className='or'>
+            or
+          </div>
+
+          <div className='button-container'>
+            <input type='submit' value='create account'
+              onClick={handleCreateAcc} />
+          </div>
         </form>
         {/*</div>*/}
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

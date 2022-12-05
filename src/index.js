@@ -23,8 +23,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        {/*<Route path='/Home' element={<Home />} /> */}
+        <Route path='/' element={<Login />} />
+        <Route path='/Home' element={<Home />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Signedin' element={<SignedIn />} />
